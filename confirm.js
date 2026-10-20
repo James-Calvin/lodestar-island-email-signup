@@ -1,5 +1,5 @@
 (() => {
-  const { api, fragment, $, showOnly, bindLinkRequest } = window.Lodestar;
+  const { api, fragment, session, $, showOnly, bindLinkRequest } = window.Lodestar;
   const states = ["confirm-loading", "confirm-done", "confirm-failed"];
   bindLinkRequest($("link-form"));
 
@@ -20,7 +20,8 @@
     if (profile.username) items.push(`Username reserved: ${profile.username}`);
     $("confirm-summary").replaceChildren(...items.map(text => Object.assign(document.createElement("li"), { textContent: text })));
     $("confirm-username-lost").hidden = !usernameUnavailable;
-    $("confirm-manage").href = `manage.html#token=${encodeURIComponent(manageToken)}`;
+    // Hand the manage token to the next page through this tab's storage, not the URL.
+    session.save(manageToken);
     showOnly("confirm-done", states);
   }
   run();

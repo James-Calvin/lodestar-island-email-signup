@@ -1,5 +1,5 @@
 (() => {
-  const { api, fragment, date, $, showOnly, setError, busy, bindLinkRequest, USERNAME } = window.Lodestar;
+  const { api, session, date, $, showOnly, setError, busy, bindLinkRequest, USERNAME } = window.Lodestar;
   const states = ["manage-loading", "manage-request", "manage-form-state", "manage-unsubscribe-state", "manage-closed", "manage-gone"];
   const form = $("manage-form"), error = $("manage-error"), saved = $("manage-saved");
   let token = null, cameToUnsubscribe = false;
@@ -24,12 +24,12 @@
   }
 
   async function load() {
-    const params = fragment();
-    token = params.token || params.unsubscribe || null;
-    cameToUnsubscribe = Boolean(params.unsubscribe);
+    token = session.take();
+    cameToUnsubscribe = new URLSearchParams(location.search).has("leave");
     if (!token) return showOnly("manage-request", states);
     const result = await api("/profile", { token });
     if (!result.ok) {
+      if (result.error.code === "INVALID_LINK") session.clear();
       $("manage-request-reason").textContent = result.error.code === "INVALID_LINK"
         ? "That link is no longer valid (it may be from before you unsubscribed or rejoined). Enter your email and we'll send a fresh one."
         : result.error.message;
@@ -58,18 +58,20 @@
   form.addEventListener("input", () => { saved.hidden = true; });
 
   $("manage-unsubscribe").addEventListener("click", () => { showOnly("manage-unsubscribe-state", states); $("unsubscribe-confirm").focus(); });
-  $("unsubscribe-cancel").addEventListener("click", () => { showOnly("manage-form-state", states); history.replaceState(null, "", `#token=${encodeURIComponent(token)}`); });
+  $("unsubscribe-cancel").addEventListener("click", () => { showOnly("manage-form-state", states); history.replaceState(null, "", location.pathname); });
   $("unsubscribe-confirm").addEventListener("click", async () => {
     const done = busy($("unsubscribe-confirm"), "Unsubscribing…");
     const result = await api("/unsubscribe", { token });
     done();
     if (!result.ok) return setError($("unsubscribe-error"), result.error.message);
+    session.clear();
     history.replaceState(null, "", location.pathname);
     showOnly("manage-gone", states);
   });
   // "Sign out" for shared devices: forget the private link and wipe what's on screen.
   $("manage-close").addEventListener("click", () => {
     token = null;
+    session.clear();
     form.reset();
     for (const id of ["manage-email", "manage-joined", "manage-updated", "manage-username-reserved"]) $(id).textContent = "";
     setError(error, ""); saved.hidden = true;

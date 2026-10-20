@@ -13,7 +13,7 @@ The public website at **lodestar-island.com**: a plain static site with no build
 | `styles.css`, `favicon.svg` | Look shared with the game prototype |
 | `CNAME`, `.nojekyll` | Custom domain and plain static serving for GitHub Pages |
 
-The backend (AWS Lambda, DynamoDB, SES) lives in a separate private repository. Nothing in this repository is secret. Private links carry their tokens in the URL fragment (`#…`), which browsers never send to this host.
+The backend (AWS Lambda, DynamoDB, SES) lives in a separate private repository. Nothing in this repository is secret. Private links carry their tokens in the URL fragment (`#…`), which browsers never send to this host. The pages immediately move the token into the tab's `sessionStorage` (see `session` in `common.js`) and erase it from the address bar. The address of an open manage page is therefore safe to copy, and the token is forgotten when the tab closes or on **Sign out**.
 
 ## Publishing
 
