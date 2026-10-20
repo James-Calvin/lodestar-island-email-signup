@@ -27,7 +27,7 @@
 
         <div id="manage-request" class="state" hidden>
           <p class="eyebrow">Your signup</p>
-          <h2>Get your signup link</h2>
+          <h2>Manage your signup</h2>
           <p id="manage-request-reason">Enter the email address you signed up with and we'll send a private link for changing your choices or unsubscribing.</p>
         <form id="link-form" class="link-form" novalidate>
           <label><span>Email address</span><input name="email" type="email" autocomplete="email" maxlength="254" required placeholder="you@example.com"></label>
@@ -36,6 +36,10 @@
           <button class="primary-button" type="submit">Email me a new link</button>
         </form>
         <p class="form-success" role="status" hidden></p>
+          <div class="alt-action">
+            <p>Not on the mailing list yet?</p>
+            <a class="secondary-button" href="./">Join the list</a>
+          </div>
         </div>
 
         <div id="manage-form-state" class="state" hidden>

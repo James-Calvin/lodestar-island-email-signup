@@ -102,6 +102,9 @@ a.primary-button { display: block; margin-top: 1rem; text-align: center; text-de
 .link-form { margin-top: .5rem; }
 .state > p.facts-actions { margin: 0 0 1.5rem; text-align: right; }
 .facts-actions .text-button { margin: 0; }
+.alt-action { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+.state .alt-action p { margin: 0 0 .75rem; color: var(--muted); font-size: .9rem; }
+a.secondary-button { display: block; text-align: center; text-decoration: none; }
 .text-button:hover { color: var(--ink); }
 .form-success:focus { outline: none; }
 .prose h3 { margin: 1.6rem 0 .5rem; font-family: Georgia, "Times New Roman", serif; font-size: 1.2rem; font-weight: 500; }
