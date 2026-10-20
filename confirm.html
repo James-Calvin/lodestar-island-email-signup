@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Confirm your signup — Lodestar Island</title>
+  <meta name="description" content="Confirm your Lodestar Island signup.">
+  <meta name="theme-color" content="#0d1213">
+  <meta name="referrer" content="no-referrer">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="auth-layout">
+    <section class="brand-panel compact" aria-labelledby="game-title">
+      <div class="brand-copy">
+        <p class="eyebrow">Release updates</p>
+        <h1 id="game-title"><a href="./">Lodestar Island</a></h1>
+        <p class="legend">Sailors speak of a star that leads to an island no chart records.</p>
+      </div>
+      <p class="build-label"><a href="./">Home</a> · <a href="privacy.html">Privacy</a></p>
+    </section>
+
+    <section class="auth-panel">
+      <div class="auth-card">
+        <div id="confirm-loading" class="state"><p class="eyebrow">Confirming</p><h2>One moment…</h2></div>
+
+        <div id="confirm-done" class="state" hidden>
+          <p class="eyebrow">Confirmed</p>
+          <h2>You're on the list</h2>
+          <p>Thanks for joining. Here's what we'll email you about:</p>
+          <ul id="confirm-summary" class="summary"></ul>
+          <p id="confirm-username-lost" class="notice" hidden>Someone confirmed that username first, so it isn't reserved for you. You can choose another on your signup page.</p>
+          <a id="confirm-manage" class="primary-button" href="manage.html">Review or change my choices</a>
+          <p class="console-note">That button opens your private signup page. Bookmark it to make changes later, and don't share it. You can always request a new link by email.</p>
+        </div>
+
+        <div id="confirm-failed" class="state" hidden>
+          <p class="eyebrow">Link problem</p>
+          <h2>That link didn't work</h2>
+          <p id="confirm-error">This confirmation link is invalid or has expired. Enter your email and we'll send a fresh one.</p>
+        <form id="link-form" class="link-form" novalidate>
+          <label><span>Email address</span><input name="email" type="email" autocomplete="email" maxlength="254" required placeholder="you@example.com"></label>
+          <label class="trap" aria-hidden="true"><span>Leave this field empty</span><input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+          <p class="form-error" role="alert" hidden></p>
+          <button class="primary-button" type="submit">Email me a new link</button>
+        </form>
+        <p class="form-success" role="status" hidden></p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="config.js" defer></script>
+  <script src="common.js" defer></script>
+  <script src="confirm.js" defer></script>
+</body>
+</html>

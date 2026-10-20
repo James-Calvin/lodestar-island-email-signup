@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy — Lodestar Island</title>
+  <meta name="description" content="What the Lodestar Island release list stores and why.">
+  <meta name="theme-color" content="#0d1213">
+  <meta name="referrer" content="no-referrer">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="auth-layout">
+    <section class="brand-panel compact" aria-labelledby="game-title">
+      <div class="brand-copy">
+        <p class="eyebrow">Release updates</p>
+        <h1 id="game-title"><a href="./">Lodestar Island</a></h1>
+        <p class="legend">Sailors speak of a star that leads to an island no chart records.</p>
+      </div>
+      <p class="build-label"><a href="./">Home</a> · <a href="privacy.html">Privacy</a></p>
+    </section>
+
+    <section class="auth-panel">
+      <article class="auth-card prose">
+        <p class="eyebrow">Privacy</p>
+        <h2>Your email, plainly</h2>
+        <p>The release list exists so we can tell you when Lodestar Island is ready. Here is everything it keeps.</p>
+        <h3>What we store</h3>
+        <ul>
+          <li>Your email address.</li>
+          <li>When you first signed up, when you confirmed, and when you last changed your choices.</li>
+          <li>Your choices: open beta notice yes/no and closed beta invite request yes/no. Everyone gets the full-release notice.</li>
+          <li>A reserved username, if you chose one.</li>
+          <li>Which announcements we've already sent you, so nobody gets one twice.</li>
+          <li>For about two hours, a scrambled (hashed) form of your network address, used only to slow down abuse. We never keep the address itself.</li>
+        </ul>
+        <h3>What we send</h3>
+        <p>A confirmation email when you sign up, a link when you ask for one, and the announcements you chose: the full release, plus the open beta and closed beta invites if you asked. Very occasionally we may send a correction to an announcement you received. Nothing else.</p>
+        <h3>Where it lives</h3>
+        <p>In our own Amazon Web Services account: an Amazon DynamoDB table for storage and Amazon SES for sending. We don't use a mailing-list company or any tracking. Your address is never sold, rented or shared.</p>
+        <h3>How long we keep it</h3>
+        <ul>
+          <li>Unconfirmed signups are deleted automatically after about a week.</li>
+          <li>Confirmed signups are kept until you unsubscribe or we close the list.</li>
+          <li>Reserved usernames are held until 180 days after the full-release email. To claim yours, create a game account with the same email address.</li>
+          <li>Unsubscribing deletes your record immediately. Our database's recovery backups, kept only for disaster recovery, roll off within 35 days.</li>
+        </ul>
+        <h3>Your choices</h3>
+        <p>Every email we send includes a link to change your choices or unsubscribe. You can also <a href="manage.html">request your link here</a>.</p>
+      </article>
+    </section>
+  </main>
+  <script src="config.js" defer></script>
+  <script src="common.js" defer></script>
+</body>
+</html>

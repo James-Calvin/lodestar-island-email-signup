@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your signup — Lodestar Island</title>
+  <meta name="description" content="Change your Lodestar Island email choices or unsubscribe.">
+  <meta name="theme-color" content="#0d1213">
+  <meta name="referrer" content="no-referrer">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="auth-layout">
+    <section class="brand-panel compact" aria-labelledby="game-title">
+      <div class="brand-copy">
+        <p class="eyebrow">Release updates</p>
+        <h1 id="game-title"><a href="./">Lodestar Island</a></h1>
+        <p class="legend">Sailors speak of a star that leads to an island no chart records.</p>
+      </div>
+      <p class="build-label"><a href="./">Home</a> · <a href="privacy.html">Privacy</a></p>
+    </section>
+
+    <section class="auth-panel">
+      <div class="auth-card">
+        <div id="manage-loading" class="state"><p class="eyebrow">Your signup</p><h2>One moment…</h2></div>
+
+        <div id="manage-request" class="state" hidden>
+          <p class="eyebrow">Your signup</p>
+          <h2>Get your signup link</h2>
+          <p id="manage-request-reason">Enter the email address you signed up with and we'll send a private link for changing your choices or unsubscribing.</p>
+        <form id="link-form" class="link-form" novalidate>
+          <label><span>Email address</span><input name="email" type="email" autocomplete="email" maxlength="254" required placeholder="you@example.com"></label>
+          <label class="trap" aria-hidden="true"><span>Leave this field empty</span><input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+          <p class="form-error" role="alert" hidden></p>
+          <button class="primary-button" type="submit">Email me a new link</button>
+        </form>
+        <p class="form-success" role="status" hidden></p>
+        </div>
+
+        <div id="manage-form-state" class="state" hidden>
+          <p class="eyebrow">Your signup</p>
+          <h2>Your choices</h2>
+          <dl class="facts">
+            <div><dt>Email</dt><dd id="manage-email"></dd></div>
+            <div><dt>Joined</dt><dd id="manage-joined"></dd></div>
+            <div><dt>Last changed</dt><dd id="manage-updated"></dd></div>
+          </dl>
+          <form id="manage-form" novalidate>
+            <fieldset class="choices">
+              <legend>Email me about</legend>
+              <label class="choice locked">
+                <input type="checkbox" checked disabled>
+                <span><strong>Full release</strong><small>Everyone on the list gets this one launch announcement. To stop it, unsubscribe below.</small></span>
+              </label>
+              <label class="choice">
+                <input name="openBeta" type="checkbox">
+                <span><strong>Open beta</strong><small>When anyone can start playing before launch.</small></span>
+              </label>
+              <label class="choice">
+                <input name="closedBeta" type="checkbox">
+                <span><strong>Closed beta invite</strong><small>Ask to be considered for the small, invite-only test.</small></span>
+              </label>
+            </fieldset>
+            <label>
+              <span>Reserved username <em>(optional)</em></span>
+              <input name="username" autocomplete="username" maxlength="24" placeholder="3–24 letters, numbers, _ or -" aria-describedby="manage-username-hint">
+            </label>
+            <p id="manage-username-hint" class="hint"></p>
+            <p id="manage-error" class="form-error" role="alert" hidden></p>
+            <p id="manage-saved" class="form-success" role="status" hidden>Saved.</p>
+            <button id="manage-save" class="primary-button" type="submit">Save changes</button>
+          </form>
+          <button id="manage-unsubscribe" class="text-button danger" type="button">Unsubscribe and delete my signup</button>
+        </div>
+
+        <div id="manage-unsubscribe-state" class="state" hidden>
+          <p class="eyebrow">Unsubscribe</p>
+          <h2>Leave the list?</h2>
+          <p>We'll delete your email address, your choices and any reserved username. You won't get any more emails from us, including the full-release notice.</p>
+          <p id="unsubscribe-error" class="form-error" role="alert" hidden></p>
+          <div class="button-row">
+            <button id="unsubscribe-confirm" class="danger-button" type="button">Unsubscribe</button>
+            <button id="unsubscribe-cancel" class="secondary-button" type="button">Keep my signup</button>
+          </div>
+        </div>
+
+        <div id="manage-gone" class="state" hidden>
+          <p class="eyebrow">Unsubscribed</p>
+          <h2>You've left the list</h2>
+          <p>Your signup has been deleted. If you change your mind, you're welcome to <a href="./">join again</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="config.js" defer></script>
+  <script src="common.js" defer></script>
+  <script src="manage.js" defer></script>
+</body>
+</html>

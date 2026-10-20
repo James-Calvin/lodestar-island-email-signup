@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lodestar Island — Release updates</title>
+  <meta name="description" content="Lodestar Island is a persistent, text-based world of islands, ships and the people who build them. Join the list for beta and release news.">
+  <meta name="theme-color" content="#0d1213">
+  <meta name="referrer" content="no-referrer">
+  <meta property="og:title" content="Lodestar Island">
+  <meta property="og:description" content="A persistent, text-based world of islands, ships and the people who build them. Join the list for beta and release news.">
+  <link rel="canonical" href="https://lodestar-island.com/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="auth-layout">
+    <section class="brand-panel" aria-labelledby="game-title">
+      <div class="brand-copy">
+        <p class="eyebrow">A text-based MMO in development</p>
+        <h1 id="game-title">Lodestar Island</h1>
+        <p class="legend">Sailors speak of a star that leads to an island no chart records.</p>
+        <p>A persistent world of islands, ships and the people who build them. Gather, grow, forge and trade. Raise a dock with your crew, design a vessel and set out together. Nothing legendary spawns here: it becomes legendary through what players make of it.</p>
+      </div>
+      <p class="build-label"><a href="privacy.html">Privacy</a> · lodestar-island.com</p>
+    </section>
+
+    <section class="auth-panel">
+      <div class="auth-card">
+        <p class="eyebrow">Release updates</p>
+        <h2>Join the list</h2>
+        <p id="signup-intro">Hear when Lodestar Island is ready for you. Choose what you'd like to know about: at most a few emails, ever.</p>
+
+        <form id="signup-form" novalidate>
+          <label>
+            <span>Email address</span>
+            <input name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required placeholder="you@example.com">
+          </label>
+
+          <fieldset class="choices">
+            <legend>Email me about</legend>
+            <label class="choice locked">
+              <input type="checkbox" checked disabled aria-describedby="full-release-hint">
+              <span><strong>Full release</strong><small id="full-release-hint">Everyone on the list gets this one launch announcement.</small></span>
+            </label>
+            <label class="choice">
+              <input name="openBeta" type="checkbox" checked>
+              <span><strong>Open beta</strong><small>When anyone can start playing before launch.</small></span>
+            </label>
+            <label class="choice">
+              <input name="closedBeta" type="checkbox">
+              <span><strong>Closed beta invite</strong><small>Ask to be considered for the small, invite-only test. Places are limited.</small></span>
+            </label>
+          </fieldset>
+
+          <label>
+            <span>Reserve a username <em>(optional)</em></span>
+            <input name="username" autocomplete="username" maxlength="24" pattern="[A-Za-z0-9_-]{3,24}" placeholder="3–24 letters, numbers, _ or -" aria-describedby="username-hint">
+          </label>
+          <p id="username-hint" class="hint">We'll hold it until 180 days after the full-release email. Claim it by creating your game account with this email address.</p>
+
+          <label class="trap" aria-hidden="true"><span>Leave this field empty</span><input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+          <p id="signup-error" class="form-error" role="alert" hidden></p>
+          <button id="signup-submit" class="primary-button" type="submit">Join the list</button>
+        </form>
+
+        <div id="signup-success" class="form-success" role="status" tabindex="-1" hidden>
+          <strong>Check your inbox.</strong> We sent a confirmation link to <span id="signup-success-email"></span>. Your signup isn't complete until you open it. The link works for 7 days.
+        </div>
+
+        <p class="console-note">We'll ask you to confirm your email first. Your address is never sold or shared, and you can change your choices or unsubscribe at any time. <a href="privacy.html">Privacy</a> · <a href="manage.html">Already signed up?</a></p>
+      </div>
+    </section>
+  </main>
+  <script src="config.js" defer></script>
+  <script src="common.js" defer></script>
+  <script src="signup.js" defer></script>
+</body>
+</html>
