@@ -8,9 +8,7 @@
   function render(profile) {
     $("manage-email").textContent = profile.email;
     $("manage-username-row").hidden = !profile.username;
-    $("manage-username-reserved").textContent = profile.username
-      ? (profile.reservation.heldUntil ? `${profile.username} (held until ${date(profile.reservation.heldUntil)})` : `${profile.username} (reserved)`)
-      : "";
+    $("manage-username-reserved").textContent = profile.username || "";
     $("manage-joined").textContent = date(profile.signedUpAt);
     $("manage-updated").textContent = date(profile.preferencesUpdatedAt);
     form.elements.openBeta.checked = profile.openBeta;
