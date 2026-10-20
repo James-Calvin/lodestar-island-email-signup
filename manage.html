@@ -43,9 +43,11 @@
           <h2>Your choices</h2>
           <dl class="facts">
             <div><dt>Email</dt><dd id="manage-email"></dd></div>
+            <div id="manage-username-row" hidden><dt>Username</dt><dd id="manage-username-reserved"></dd></div>
             <div><dt>Joined</dt><dd id="manage-joined"></dd></div>
             <div><dt>Last changed</dt><dd id="manage-updated"></dd></div>
           </dl>
+          <p class="facts-actions"><button id="manage-close" class="text-button" type="button">Sign out</button></p>
           <form id="manage-form" novalidate>
             <fieldset class="choices">
               <legend>Email me about</legend>
@@ -83,6 +85,14 @@
             <button id="unsubscribe-confirm" class="danger-button" type="button">Unsubscribe</button>
             <button id="unsubscribe-cancel" class="secondary-button" type="button">Keep my signup</button>
           </div>
+        </div>
+
+        <div id="manage-closed" class="state" hidden>
+          <p class="eyebrow">Signed out</p>
+          <h2>You're signed out</h2>
+          <p>Your details are no longer shown on this device. To make changes again, use the link in any of our emails or <a href="manage.html">request a new one</a>.</p>
+          <p class="console-note">On a shared computer, also clear this browser's history: the link you arrived with may still be saved there.</p>
+          <a class="primary-button" href="./">Back to Lodestar Island</a>
         </div>
 
         <div id="manage-gone" class="state" hidden>

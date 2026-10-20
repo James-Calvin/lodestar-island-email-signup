@@ -1,12 +1,16 @@
 (() => {
   const { api, fragment, date, $, showOnly, setError, busy, bindLinkRequest, USERNAME } = window.Lodestar;
-  const states = ["manage-loading", "manage-request", "manage-form-state", "manage-unsubscribe-state", "manage-gone"];
+  const states = ["manage-loading", "manage-request", "manage-form-state", "manage-unsubscribe-state", "manage-closed", "manage-gone"];
   const form = $("manage-form"), error = $("manage-error"), saved = $("manage-saved");
   let token = null, cameToUnsubscribe = false;
   bindLinkRequest($("link-form"));
 
   function render(profile) {
     $("manage-email").textContent = profile.email;
+    $("manage-username-row").hidden = !profile.username;
+    $("manage-username-reserved").textContent = profile.username
+      ? (profile.reservation.heldUntil ? `${profile.username} (held until ${date(profile.reservation.heldUntil)})` : `${profile.username} (reserved)`)
+      : "";
     $("manage-joined").textContent = date(profile.signedUpAt);
     $("manage-updated").textContent = date(profile.preferencesUpdatedAt);
     form.elements.openBeta.checked = profile.openBeta;
@@ -62,6 +66,15 @@
     if (!result.ok) return setError($("unsubscribe-error"), result.error.message);
     history.replaceState(null, "", location.pathname);
     showOnly("manage-gone", states);
+  });
+  // "Sign out" for shared devices: forget the private link and wipe what's on screen.
+  $("manage-close").addEventListener("click", () => {
+    token = null;
+    form.reset();
+    for (const id of ["manage-email", "manage-joined", "manage-updated", "manage-username-reserved"]) $(id).textContent = "";
+    setError(error, ""); saved.hidden = true;
+    history.replaceState(null, "", location.pathname);
+    showOnly("manage-closed", states);
   });
   window.addEventListener("hashchange", load);
   load();
