@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lodestar Island</title>
+  <meta name="description" content="Lodestar Island release updates.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0d1213">
+  <meta name="referrer" content="no-referrer">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="auth-layout">
+    <section class="brand-panel compact" aria-labelledby="game-title">
+      <div class="brand-copy">
+        <p id="players-eyebrow" class="eyebrow">Release updates</p>
+        <h1 id="game-title"><a href="./">Lodestar Island</a></h1>
+        <p class="legend">Sailors speak of a star that leads to an island no chart records.</p>
+      </div>
+      <p class="build-label"><a href="./">Home</a> · <a href="privacy.html">Privacy</a></p>
+    </section>
+
+    <section class="auth-panel">
+      <div class="auth-card">
+        <div id="players-loading" class="state"><h2>One moment…</h2></div>
+
+        <div id="players-list-state" class="state" hidden>
+          <p class="eyebrow">Who wants to play</p>
+          <h2 id="players-count"></h2>
+          <p>These players have already reserved their names for launch day.</p>
+          <ul id="players-names" class="player-names"></ul>
+          <p id="players-unnamed" class="players-unnamed"></p>
+          <a class="primary-button" href="./">Join them</a>
+        </div>
+
+        <div id="players-failed" class="state" hidden>
+          <p class="eyebrow">Who wants to play</p>
+          <h2>Couldn't load the list</h2>
+          <p id="players-error"></p>
+          <a class="secondary-button" href="./">Back to Lodestar Island</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="config.js" defer></script>
+  <script src="common.js" defer></script>
+  <script src="players.js" defer></script>
+</body>
+</html>

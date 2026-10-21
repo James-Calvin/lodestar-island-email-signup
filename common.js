@@ -65,5 +65,14 @@ window.Lodestar = (() => {
     });
   }
 
-  return { api, fragment, session, date, $, showOnly, setError, busy, bindLinkRequest, USERNAME, EMAIL };
+  // Fills an element with "N people have joined… See who wants to play" once the public list is open.
+  async function showCommunityLink(element) {
+    if (!element) return;
+    const result = await api("/players", {});
+    if (!result.ok || !result.open) return;
+    element.replaceChildren(`${result.count.toLocaleString()} people have joined the list. `, Object.assign(document.createElement("a"), { href: "players.html", textContent: "See who wants to play →" }));
+    element.hidden = false;
+  }
+
+  return { api, fragment, session, showCommunityLink, date, $, showOnly, setError, busy, bindLinkRequest, USERNAME, EMAIL };
 })();

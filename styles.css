@@ -102,6 +102,11 @@ a.primary-button { display: block; margin-top: 1rem; text-align: center; text-de
 .link-form { margin-top: .5rem; }
 .state > p.facts-actions { margin: 0 0 1.5rem; text-align: right; }
 .facts-actions .text-button { margin: 0; }
+.community-link { position: relative; z-index: 1; margin: 0 0 1.2rem; color: var(--ink); font-size: .95rem; }
+.state > p.community-link { margin: 0 0 1.25rem; color: var(--ink); }
+.player-names { display: grid; grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr)); gap: .45rem 1rem; margin: 0 0 1rem; padding: 0; list-style: none; }
+.player-names li { overflow: hidden; padding: .45rem .6rem; color: var(--ink); background: #0e1415; border: 1px solid var(--border); border-radius: .3rem; font-size: .9rem; text-overflow: ellipsis; white-space: nowrap; }
+.state > p.players-unnamed { margin: 0 0 1.5rem; color: var(--muted); font-style: italic; }
 .alt-action { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
 .state .alt-action p { margin: 0 0 .75rem; color: var(--muted); font-size: .9rem; }
 a.secondary-button { display: block; text-align: center; text-decoration: none; }

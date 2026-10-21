@@ -1,5 +1,6 @@
 (() => {
-  const { api, $, setError, busy, USERNAME, EMAIL } = window.Lodestar;
+  const { api, $, setError, busy, USERNAME, EMAIL, showCommunityLink } = window.Lodestar;
+  showCommunityLink($("community-link"));
   const form = $("signup-form"), error = $("signup-error");
 
   form.addEventListener("submit", async event => {

@@ -1,5 +1,5 @@
 (() => {
-  const { api, fragment, session, $, showOnly, bindLinkRequest } = window.Lodestar;
+  const { api, fragment, session, $, showOnly, bindLinkRequest, showCommunityLink } = window.Lodestar;
   const states = ["confirm-loading", "confirm-done", "confirm-failed"];
   bindLinkRequest($("link-form"));
 
@@ -23,6 +23,7 @@
     // Hand the manage token to the next page through this tab's storage, not the URL.
     session.save(manageToken);
     showOnly("confirm-done", states);
+    showCommunityLink($("confirm-community"));
   }
   run();
 })();

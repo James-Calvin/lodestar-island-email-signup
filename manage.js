@@ -17,7 +17,7 @@
     const { open, heldUntil } = profile.reservation;
     form.elements.username.disabled = !open && !profile.username;
     $("manage-username-hint").textContent = open
-      ? "Held until 180 days after the full-release email. Create your game account with this email address to claim it. Leave empty to release it."
+      ? "Held until 180 days after the full-release email. Create your game account with this email address to claim it. Reserved usernames may be shown publicly. Leave empty to release it."
       : `Reservations are closed. ${profile.username ? `Yours is held until ${date(heldUntil)}; clear the box to release it.` : ""}`;
   }
 
